@@ -8,12 +8,28 @@ import com.azuqua.java.client.AzuquaResponse;
 import com.azuqua.java.client.exceptions.ResumeIdIsNullException;
 import com.google.gson.JsonObject;
 
+/**
+ * Remember to reference the right azuqua.java-1.0.0-jar-with-dependencies.jar.
+ * @author quyle
+ *
+ */
 public class Flo {
 	static String key = System.getenv().get("ALPHA_KEY");
 	static String secret =  System.getenv().get("ALPHA_SECRET");
 	static String host = System.getenv().get("ALPHA_HOST");
 	
+	/** 
+	 * this alias corresponds to a simple HTTP echo flo. 
+	 * 
+	 * input: { "a": "some value" }
+	 * output: { "data": { "a": "some value" }
+	 */
 	static String regularFloAlias = "9d88f3f06814482eafa7a411fb12199c";
+	
+	/** 
+	 * this alias corresponds to a resume HTTP flo. 
+	 * 
+	 */
 	static String pauseEnabledFloAlias = "90bac28b901371bc8a4ea3f7f2aa9d92";
 	
 	public static void main(String[] args) throws InvalidKeyException, NoSuchAlgorithmException, IOException, ResumeIdIsNullException  {
@@ -53,6 +69,4 @@ public class Flo {
 		System.out.println(invokeResponse.getResponse());
 		System.out.println(resumeResponse.getResponse());
 	}
-	
-	
 }
